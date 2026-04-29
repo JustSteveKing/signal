@@ -1,0 +1,10 @@
+{
+    "input": "tests/",
+    "output": {
+        "format": ["markdown", "json"],
+        "path": "docs/"
+    },
+    "exclude": [
+        "src/Attributes/"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "name": "signal",
+    "description": "Annotates PHP classes with Signal attributes and generates new annotated code for the juststeveking/signal documentation library.",
+    "version": "1.0.0",
+    "author": {
+        "name": "Steve McDougall"
+    },
+    "homepage": "https://github.com/juststeveking/signal",
+    "repository": "https://github.com/juststeveking/signal",
+    "license": "MIT"
+}

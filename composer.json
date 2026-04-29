@@ -1,0 +1,56 @@
+{
+    "name": "juststeveking/signal",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "role": "Developer",
+            "name": "Steve McDougall",
+            "email": "steve@juststeveking.com",
+            "homepage": "https://juststeveking.link"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.5",
+        "symfony/console": "8.1.x-dev"
+    },
+    "require-dev": {
+        "laravel/pint": "dev-main",
+        "phpstan/phpstan": "2.2.x-dev",
+        "phpstan/phpstan-strict-rules": "2.0.x-dev",
+        "phpunit/phpunit": "^13.2@dev",
+        "roave/security-advisories": "dev-latest"
+    },
+    "autoload": {
+        "psr-4": {
+            "JustSteveKing\\Signal\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JustSteveKing\\Signal\\Tests\\": "tests/"
+        }
+    },
+    "bin": [
+        "bin/signal"
+    ],
+    "scripts": {
+        "lint": [
+            "./vendor/bin/pint --test"
+        ],
+        "pint": [
+            "./vendor/bin/pint"
+        ],
+        "static": [
+            "./vendor/bin/phpstan analyse"
+        ],
+        "test": [
+            "./vendor/bin/phpunit --testdox"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}
