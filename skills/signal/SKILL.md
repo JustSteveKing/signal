@@ -1,5 +1,11 @@
 ---
-name: Signal Attribute Annotator
+name: signal
+description: "Annotates PHP classes with Signal attributes and generates new annotated code for the juststeveking/signal documentation library."
+compatibility: "Requires PHP 8.5+."
+license: MIT
+metadata:
+  author: juststeveking
+  version: "1.0"
 ---
 
 # Signal Attribute Annotator
