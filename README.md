@@ -1,5 +1,8 @@
 # Signal
 
+[![Tests](https://github.com/JustSteveKing/signal/actions/workflows/tests.yml/badge.svg)](https://github.com/JustSteveKing/signal/actions/workflows/tests.yml)
+
+
 **Signal** is a PHP library that turns PHP attributes into living documentation. Annotate your classes and methods with Signal's attributes, then run a single command to generate Markdown and JSON docs that always reflect your actual code.
 
 No more docs that drift. No more manually maintained API references. Signal reads your annotations and writes the documentation for you.
