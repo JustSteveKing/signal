@@ -1,0 +1,50 @@
+name: Tests
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+          coverage: none
+
+      - name: Determine Composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Determine Composer install command
+        id: composer-command
+        shell: bash
+        run: |
+          if [[ -f composer.lock ]]; then
+            echo "command=install" >> "$GITHUB_OUTPUT"
+          else
+            echo "command=update" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install dependencies
+        run: composer ${{ steps.composer-command.outputs.command }} --prefer-dist --no-interaction --no-progress
+
+      - name: Run test suite
+        run: composer test
